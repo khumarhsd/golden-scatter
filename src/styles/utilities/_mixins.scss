@@ -1,0 +1,55 @@
+@use "./variables" as *;
+
+@mixin btnGhost($text) {
+    background: none;
+    border: none;
+    color: $text;
+    cursor: pointer;
+    font-size: 15px;
+    text-align: center;
+    font-weight: 700;
+    line-height: 1.6rem;
+    transition: all 0.5s;
+  
+    &:hover {
+        color: darken($text, 12%);
+    }
+  }
+@mixin btnPrimary {
+    background: $color-primary;
+    border: none;
+    color: $color-white;
+    cursor: pointer;
+    font-size: 15px;
+    text-align: center;
+    font-weight: 700;
+    line-height: 1.6rem;
+    transition: all 0.3s;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    font-family: var(--font-lato);
+  
+    &:hover {
+        background: darken($color-primary , $amount: 5%);
+    }
+  }
+@mixin btnAdd{
+    background: $color-primary;
+    border: none;
+    color: $color-white;
+    cursor: pointer;
+    font-size: 15px;
+    text-align: center;
+    font-weight: 700;
+    line-height: 1.6rem;
+    transition: all 0.3s;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    font-family: var(--font-lato);
+  
+    &:hover {
+        background: darken($color-primary , $amount: 5%);
+    }
+  }

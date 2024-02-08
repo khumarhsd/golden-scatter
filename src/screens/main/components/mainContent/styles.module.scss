@@ -1,0 +1,25 @@
+@use "src/styles/utilities/variables" as *;
+
+.main_wrapper {
+  background-color: #f7f7f7;
+  border-top: 1px solid #f7f7f7;
+  width: 100%;
+
+  .aside_wrapper {
+    display: none;
+  }
+}
+
+@media (min-width: $screen-lg) {
+  .main_wrapper {
+    display: flex;
+  
+    .aside_wrapper {
+      display: block;
+      width: 280px;
+      padding-top: 45px;
+      background-color: $color-white;
+    }
+  }
+  
+}

@@ -1,0 +1,60 @@
+@use "src/styles/utilities/variables" as *;
+@use "src/styles/utilities/mixins" as *;
+
+.nav_list_wrapper {
+  position: absolute;
+  top: 0;
+  left: -316px;
+  bottom: 0;
+  z-index: 9999999;
+  min-height: 100vh;
+  background-color: $color-white;
+  width: 316px;
+  overflow-y: scroll;
+  transition: all 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+
+  &.nav_list_active {
+    transform: translateX(316px);
+  }
+
+  button {
+    @include btnPrimary;
+    padding: 6px 15px;
+  }
+
+  .nav_list_close {
+    padding: 15px 45px;
+    color: rgb(119, 121, 140);
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+.nav_list {
+  margin-top: 40px;
+  padding: 5px 45px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  font-size: 15px;
+}
+
+.nav_login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(247, 247, 247);
+  padding: 45px;
+}
+
+
+
+@media (min-width: $screen-lg) {
+  .nav_list_wrapper{
+    display: none;
+  }
+}

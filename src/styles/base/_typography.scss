@@ -1,0 +1,15 @@
+@use "../utilities/variables" as *;
+
+body {
+  font-size: 1.4rem;
+  line-height: 2rem;
+  color: $color-text;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 500;
+}

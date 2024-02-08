@@ -1,0 +1,73 @@
+@use "src/styles/utilities/variables" as *;
+@use "src/styles/utilities/mixins" as *;
+
+.sidebar_wrapper{
+  padding-left: 50px;
+  padding-right: 20px;
+  min-height: 50vh;
+  width: 280px;
+}
+
+.menu_items{
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.menu_item{ 
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out 0s;
+
+  a{
+    flex: 1;
+  }
+
+  svg{
+    font-size: 1.25rem;
+    margin-right: 1rem;
+    transition: all 0.15s ease-in-out;
+  }
+
+  &:hover{
+    color: $color-primary;
+  } 
+
+  &.active_menu_item{
+    color: $color-primary;
+
+  }
+}
+
+
+.menu_subItems{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-left: 40px;
+  font-size: 13px;
+  color: $color-lighter;
+  transition: max-height .5s ease-in-out; 
+  max-height: 0;
+  overflow: hidden;
+
+  li{
+  padding-bottom: .5rem;
+
+
+  &:hover{
+    color: $color-primary;
+  }
+  
+  }
+}
+
+.menu_open{
+  rotate: 90deg;
+}
+
+.menu_subItems_active{
+  max-height: 1000px;
+}

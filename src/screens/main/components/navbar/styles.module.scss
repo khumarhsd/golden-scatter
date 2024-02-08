@@ -1,0 +1,65 @@
+@use "src/styles/utilities/variables" as *;
+@use "src/styles/utilities/mixins" as *;
+
+.navbar {
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  height: 68px;
+  align-items: center;
+  position: relative;
+}
+
+.navbar .nav_group:nth-child(1) {
+  display: flex;
+  gap: 2rem;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+.menu > * {
+  background-color: $color-text;
+  border-radius: 6px;
+  transition: width 0.5s ease;
+}
+.menu span:nth-child(1) {
+  width: 26px;
+  height: 3px;
+}
+.menu span:nth-child(2) {
+  width: 12px;
+  height: 3px;
+}
+.menu span:nth-child(3) {
+  width: 26px;
+  height: 3px;
+}
+
+.menu_open span:nth-child(1) {
+  width: 12px;
+}
+
+.menu_open span:nth-child(2) {
+  width: 26px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 101;
+}
+
+
+@media (min-width: $screen-lg) {
+  .menu{
+    display: none;
+  }
+}
