@@ -1,11 +1,30 @@
-import axios, { AxiosInstance, AxiosRequestConfig } from "axios"
-const config: AxiosRequestConfig = {
-  baseURL: "http://64.226.66.94/api",
-  headers: {
-    Authorization: 'Token 8a90a30c1e956d9833e2735433467b93fbaf1906'
+import axios, { AxiosInstance,  } from "axios"
+import { httpConfig } from "./httpConfig"
+import {getCookie} from 'cookies-next'
+
+
+export const clientSide: AxiosInstance = axios.create(httpConfig)
+
+clientSide.interceptors.request.use(
+  (config) => {
+    // we can handle params here.
+    const token= getCookie('token')
+    if(token){
+      config.headers.Authorization = `Token ${token}`
+    }
+    return config
   },
-}
+  (error) => {
+    return Promise.reject(error)
+  }
+)
 
-export const clientSide: AxiosInstance = axios.create(config)
-
-export const getProducts = () => clientSide.get("/products/")
+clientSide.interceptors.response.use(
+  (response) => {
+    // we can handle response here.
+    return response
+  },
+  (error) => {
+    return Promise.reject(error)
+  }
+)

@@ -12,10 +12,11 @@
   justify-content: center;
   height: 145px;
   padding: 5px;
+  position: relative;
 
   img {
-    height: 135px;
-    width: 135px;
+    height: 100%;
+    width: 100%;;
     object-fit: contain;
   }
 }
@@ -64,6 +65,7 @@
     img {
       height: 100%;
       width: 100%;
+      object-fit: cover;
     }
   }
 

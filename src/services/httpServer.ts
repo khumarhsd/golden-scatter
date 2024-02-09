@@ -1,10 +1,30 @@
-import axios, { AxiosInstance, AxiosRequestConfig } from "axios"
+import axios, { AxiosInstance,  } from "axios"
+import { httpConfig } from "./httpConfig"
+import { cookies } from "next/headers"
 
-const config: AxiosRequestConfig = {
-  baseURL: "http://64.226.66.94/api",
-  headers: {
-    Authorization: 'Token 8a90a30c1e956d9833e2735433467b93fbaf1906'
+
+
+export const serverSide: AxiosInstance = axios.create(httpConfig)
+
+serverSide.interceptors.request.use(
+  (config) => {
+    const token=cookies().get('token')?.value
+    if(token){
+      config.headers.Authorization = `Token ${token}`
+    }
+    return config
   },
-}
+  (error) => {
+    return Promise.reject(error)
+  }
+)
 
-export const serverSide: AxiosInstance = axios.create(config)
+serverSide.interceptors.response.use(
+  (response) => {
+    // we can handle response here.
+    return response
+  },
+  (error) => {
+    return Promise.reject(error)
+  }
+)

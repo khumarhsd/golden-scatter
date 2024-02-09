@@ -14,6 +14,7 @@ const getProducts = async() => {
 }
 
 export default async function Home({params,searchParams}:any) {
+  console.log(params,searchParams,'params')
   const productsRes=await getProducts()
   return (
     <MainPage productsRes={productsRes} />
